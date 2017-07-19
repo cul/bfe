@@ -1,8 +1,17 @@
 # config valid only for current version of Capistrano
 lock "3.8.2"
 
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :department, 'bib'
+set :application, 'bibframe'
+set :repo_name, 'bfe'
+set :deploy_name, "#{fetch(:application)}_#{fetch(:stage)}"
+
+set :repo_url,  "git@github.com:cul/#{fetch(:repo_name)}.git"
+
+set :remote_user, "#{fetch(:department)}serv"
+set :deploy_to, "/opt/www/#{fetch(:department)}/#{fetch(:deploy_name)}"
+
+set :repo_tree, 'public'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
