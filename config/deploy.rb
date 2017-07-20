@@ -14,7 +14,7 @@ set :deploy_to, "/opt/www/#{fetch(:department)}/#{fetch(:deploy_name)}"
 set :repo_tree, 'public'
 
 # Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
@@ -42,4 +42,4 @@ set :repo_tree, 'public'
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 3
